@@ -7,7 +7,11 @@ autoload -U colors && colors
 emojis=("⚡" "🔥" "💀" "👑" "🍩" "😎" "🐸" "🐵" "🦄" "🌈" "🍻" "🎮" "📖" "🚀" "🎁" "💡" "⛅" "🎉" "🤑" "😍" "⛈" "🤓" "👻" "👽" "🌞" "🤖" "🍇" "💎" "💻" "⚛️" "👌" "😜" "💯" "🌍" "🏛" "" "⌛")
 RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
 
-PROMPT="%(?:%{$fg_bold[magenta]%}${emojis[$RAND_EMOJI_N]} ⟿ :%{$fg_bold[red]%}${emojis[$RAND_EMOJI_N]} ⟿ )"
+# Symbols (Random symbol)
+symbols=("↪" "⇝" "⇢" "➜" "➤" "⇀" "➾" "⇒")
+RAND_SYMBOL_N=$(( $RANDOM % ${#symbols[@]} + 1))
+
+PROMPT="%(?:%{$fg_bold[green]%}${emojis[$RAND_EMOJI_N]} ${symbols[$RAND_SYMBOL_N]} :%{$fg_bold[red]%}${emojis[$RAND_EMOJI_N]} ${symbols[$RAND_SYMBOL_N]} )"
 PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
