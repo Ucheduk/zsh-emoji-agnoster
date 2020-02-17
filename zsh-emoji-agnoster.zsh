@@ -8,11 +8,11 @@ emojis=("⚡" "🔥" "💀" "👑" "🍩" "😎" "🐸" "🐵" "🦄" "🌈" "�
 RAND_EMOJI_N=$(( $RANDOM % ${#emojis[@]} + 1))
 
 # Symbols (Random symbol)
-symbols=("⇝" "⇢" "➜" "➤" "⇒")
+symbols=(" ⇝" " ⇢" " ➜" " ➤" " ⇒")
 RAND_SYMBOL_N=$(( $RANDOM % ${#symbols[@]} + 1))
 
-PROMPT="%(?:%{$fg_bold[green]%}${emojis[$RAND_EMOJI_N]} :%{$fg_bold[red]%}${emojis[$RAND_EMOJI_N]})"
-PROMPT+=' %{$fg[cyan]%}${symbols[$RAND_SYMBOL_N]}%{$reset_color%} $(git_prompt_info)'
+PROMPT="%(?:%{$fg_bold[green]%}${emojis[$RAND_EMOJI_N]} ${symbols[$RAND_SYMBOL_N]} :%{$fg_bold[red]%}${emojis[$RAND_EMOJI_N]} ${symbols[$RAND_SYMBOL_N]} )"
+PROMPT+='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
